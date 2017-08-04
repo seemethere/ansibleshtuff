@@ -1,0 +1,25 @@
+---
+- name: clone pyenv repo to ~/.pyenv
+  git: repo=https://github.com/pyenv/pyenv
+       accept_hostkey=yes
+       dest="{{ ansible_env.HOME }}/.pyenv"
+
+- name: install python dependencies
+  become: true
+  yum: pkg={{item}} state=installed
+  with_items:
+    - gcc
+    - zlib-devel
+    - bzip2
+    - bzip2-devel
+    - readline-devel
+    - sqlite
+    - sqlite-devel
+    - openssl-devel
+    - tk-devel
+
+- name: install python 2.7.13
+  shell: ~/.pyenv/bin/pyenv install 2.7.13 --skip-existing
+
+- name: install python 3.6.1
+  shell: ~/.pyenv/bin/pyenv install 3.6.1 --skip-existing
