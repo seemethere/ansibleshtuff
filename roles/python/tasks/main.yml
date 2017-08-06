@@ -1,3 +1,6 @@
 ---
 - include: pyenv.yml
   tags: pyenv
+
+- include: virtualenv.yml
+  tags: virtualenv
