@@ -1,0 +1,15 @@
+---
+- name: prepare src directory (if it does not exist)
+  file:
+    path: "{{ ansible_env.HOME }}/src"
+    state: directory
+
+- name: clone dotfiles
+  git: repo=https://github.com/seemethere/dotfiles
+       accept_hostkey=yes
+       dest="{{ ansible_env.HOME }}/src/dotfiles"
+
+- name: install dotfiles
+  shell: ./install
+  args:
+    chdir: "{{ ansible_env.HOME }}/src/dotfiles"
