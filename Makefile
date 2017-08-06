@@ -2,6 +2,10 @@ DEFAULT_USER?=centos
 
 all: python dotfiles
 
+.PHONY: clean
+clean:
+	$(RM) *.retry
+
 .PHONY: python
 python:
 	ansible-playbook python.yml -u $(DEFAULT_USER)
