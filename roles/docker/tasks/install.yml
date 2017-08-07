@@ -1,0 +1,24 @@
+---
+
+- name: curl the install script
+  become: true
+  get_url:
+    url: https://get.docker.com
+    dest: /tmp/install.sh
+
+- name: running the install script
+  become: true
+  shell: sh /tmp/install.sh
+
+- name: remove the install script
+  become: true
+  file:
+    state: absent
+    path: /tmp/install.sh
+
+- name: Start docker if it's not already running
+  become: true
+  systemd:
+    state: started
+    name: docker
+    enabled: true

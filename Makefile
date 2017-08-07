@@ -2,7 +2,7 @@ DEFAULT_USER?=centos
 VENV_DIRECTORY=$(CURDIR)/.venv
 ANSIBLE_PLAYBOOK=$(VENV_DIRECTORY)/bin/ansible-playbook
 
-all: python dotfiles neovim zsh
+all: python dotfiles neovim zsh docker
 
 .venv:
 	if [ ! -d  "$(VENV_DIRECTORY)" ];then \
@@ -31,3 +31,7 @@ neovim: .venv python
 .PHONY: zsh
 zsh: .venv dotfiles
 	$(ANSIBLE_PLAYBOOK) zsh.yml -u $(DEFAULT_USER)
+
+.PHONY: docker
+docker: .venv
+	$(ANSIBLE_PLAYBOOK) docker.yml -u $(DEFAULT_USER)
