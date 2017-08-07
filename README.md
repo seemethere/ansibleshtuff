@@ -1,3 +1,7 @@
+# ansibleshtuff
+
+![Smiling head nod guy](https://media.giphy.com/media/xSM46ernAUN3y/giphy.gif)
+
 Ansible repo that I'm using to setup new dev environments.
 
 Made because EC2 instances can get cleaned up anyday and
