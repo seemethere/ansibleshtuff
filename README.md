@@ -2,6 +2,19 @@
 
 ![Smiling head nod guy](https://media.giphy.com/media/xSM46ernAUN3y/giphy.gif)
 
+## To run:
+
+```shell
+make
+```
+
+The default user is configurable so you can use:
+
+```shell
+make DEFAULT_USER=ubuntu
+```
+
+## Info:
 Ansible repo that I'm using to setup new dev environments.
 
 Made because EC2 instances can get cleaned up anyday and
@@ -26,15 +39,3 @@ Includes things for:
 - python
 - virtualenv
 - A pre-filled out ansible hosts file with a `dev` group
-
-## To run:
-
-```shell
-make
-```
-
-The default user is configurable so you can use:
-
-```shell
-make DEFAULT_USER=ubuntu
-```
