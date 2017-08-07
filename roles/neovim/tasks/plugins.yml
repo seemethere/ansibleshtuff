@@ -1,0 +1,13 @@
+---
+- name: setup vim-plug dir
+  file:
+    path: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload"
+    state: directory
+
+- name: setup vim-plug
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim"
+
+- name: install my plugins
+  shell: "nvim '+ silent! +PlugUpdate!' +qall!"

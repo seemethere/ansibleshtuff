@@ -1,0 +1,25 @@
+---
+- name: installing neovim dependencies
+  become: true
+  package: pkg={{item}} state=present
+  with_items:
+    - libtool
+    - autoconf
+    - automake
+    - cmake
+    - gcc
+    - gcc-c++
+    - make
+    - pkgconfig
+    - unzip
+- name: clone neovim repo
+  git:
+    repo: 'https://github.com/neovim/neovim.git'
+    dest: ~/src/neovim
+    version: v0.2.0
+
+- name: install neovim
+  become: true
+  shell: make && make install
+  args:
+    chdir: "{{ ansible_env.HOME }}/src/neovim"

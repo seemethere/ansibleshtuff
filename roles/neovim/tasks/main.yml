@@ -1,0 +1,9 @@
+---
+- include: install.yml
+  tags: neovim
+
+- include: virtualenv.yml
+  tags: neovim
+
+- include: plugins.yml
+  tags: neovim

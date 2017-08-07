@@ -1,0 +1,11 @@
+---
+
+- name: Initiate neovim2 virtualenv
+  pip: virtualenv=~/venvs/neovim2
+       virtualenv_python=" ~/.pyenv/versions/2.7.13/bin/python"
+       name=neovim
+
+- name: Initiate neovim3 virtualenv
+  pip: virtualenv=~/venvs/neovim3
+       virtualenv_python=" ~/.pyenv/versions/3.6.1/bin/python"
+       name=neovim

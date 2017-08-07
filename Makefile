@@ -1,6 +1,6 @@
 DEFAULT_USER?=centos
 
-all: python dotfiles
+all: python dotfiles neovim
 
 .PHONY: clean
 clean:
@@ -13,3 +13,7 @@ python:
 .PHONY: dotfiles
 dotfiles:
 	ansible-playbook dotfiles.yml -u $(DEFAULT_USER)
+
+.PHONY: neovim
+neovim:
+	ansible-playbook neovim.yml -u $(DEFAULT_USER)
