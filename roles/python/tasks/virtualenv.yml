@@ -1,12 +1,25 @@
 ---
 
 - name: make ~/venvs folder
-  shell: mkdir -p ~/venvs
+  file:
+    name: ~/venvs/
+    state: directory
+
+- name: download get-pip.py
+  become: true
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: /tmp
 
 - name: install pip
   become: true
-  become_user: root
-  shell: curl https://bootstrap.pypa.io/get-pip.py | python
+  shell: "python /tmp/get-pip.py"
+
+- name: delete get-pip.py
+  become: true
+  file:
+    state: absent
+    path: /tmp/get-pip.py
 
 - name: install virtualenv
   become: true
