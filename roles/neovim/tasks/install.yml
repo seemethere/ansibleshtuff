@@ -4,13 +4,12 @@
   package: pkg={{item}} state=present
   with_items:
     - libtool
+    - libtool-bin
     - autoconf
     - automake
     - cmake
-    - gcc
-    - gcc-c++
-    - make
-    - pkgconfig
+    - g++
+    - pkg-config
     - unzip
 - name: clone neovim repo
   git:

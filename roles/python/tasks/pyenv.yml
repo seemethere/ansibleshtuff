@@ -8,15 +8,20 @@
   become: true
   package: pkg={{item}} state=present
   with_items:
-    - gcc
-    - zlib-devel
-    - bzip2
-    - bzip2-devel
-    - readline-devel
-    - sqlite
-    - sqlite-devel
-    - openssl-devel
-    - tk-devel
+    - make
+    - build-essential
+    - libssl-dev
+    - zlib1g-dev
+    - libbz2-dev
+    - libreadline-dev
+    - libsqlite3-dev
+    - wget
+    - curl
+    - llvm
+    - libncurses5-dev
+    - libncursesw5-dev
+    - xz-utils
+    - tk-dev
 
 - name: install python 2.7.13
   shell: ~/.pyenv/bin/pyenv install 2.7.13 --skip-existing
